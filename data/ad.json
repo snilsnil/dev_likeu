@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Example AD Title 1",
+    "imageUri": "file://local",
+    "color": "#F88600"
+  },
+  {
+    "id": 2,
+    "title": "Example AD Title 2",
+    "imageUri": "file://local",
+    "color": "#F88600"
+  },
+  {
+    "id": 3,
+    "title": "Example AD Title 3",
+    "imageUri": "file://local",
+    "color": "#F88600"
+  },
+  {
+    "id": 4,
+    "title": "Example AD Title 4",
+    "imageUri": "file://local",
+    "color": "#F88600"
+  },
+  {
+    "id": 5,
+    "title": "Example AD Title 5",
+    "imageUri": "file://local",
+    "color": "#F88600"
+  },
+  {
+    "id": 6,
+    "title": "Example AD Title 6",
+    "imageUri": "file://local",
+    "color": "#F88600"
+  }
+]
