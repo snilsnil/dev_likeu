@@ -24,10 +24,6 @@ import * as KakaoLogin from "@react-native-seoul/kakao-login";
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
-  const [responseData, setResponseData] = useState(null);
-
   //구글 로그인 설정
   GoogleSignin.configure({
     webClientId: `${process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT}`,
@@ -50,7 +46,6 @@ export default function RootLayout() {
           userInfo: userInfo,
         }
       );
-      setResponseData(response.data);
       setAuth(true);
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -65,13 +60,22 @@ export default function RootLayout() {
     }
   };
 
+  //카카오 로그인
   const onKakaoButtonPress = async () => {
     try {
-      const Login = await KakaoLogin.login().then((result) => {
-        KakaoLogin.getProfile().then((result1) => {
-          console.log(result1);
-        });
-      });
+      const Login = await KakaoLogin.login()
+      if(Login){
+        const profile = await KakaoLogin.getProfile()
+        const response = await axios.post(
+          `${process.env.EXPO_PUBLIC_KAKAO_LOGIN_URL}`,
+          {
+            userInfo: profile,
+          }
+        );
+        const Logout = await KakaoLogin.logout()
+        // console.log(response.data.accessToken)
+        setAuth(true);
+      }
     } catch (error: any) {
       console.log(error.message);
     }
@@ -81,6 +85,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DarkTheme}>
       {auth ? (
         <Stack>
+          {/* 여기서 자동으로 _layout.tsx가 관리하는 탭 네비게이션이 실행됩니다 */}
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
       ) : (

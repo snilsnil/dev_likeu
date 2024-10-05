@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 
   text: { textAlign: 'center' },
 
-  center_text: { color: 'white', fontSize: 30, fontWeight: 700, margin: 10 },
+  center_text: { color: 'white', fontSize: 30, fontWeight: '700', margin: 10 },
 
   ad_container: {
     display: 'flex',

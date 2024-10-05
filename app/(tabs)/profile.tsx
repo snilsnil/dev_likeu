@@ -62,7 +62,7 @@ export default function ProfileScreen() {
             style={{
               color: 'white',
               margin: 20,
-              fontWeight: 800,
+              fontWeight: '800',
               fontSize: 20,
             }}
           >
