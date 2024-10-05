@@ -37,8 +37,28 @@
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
           "recordAudioAndroid": true
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "extraMavenRepos": [
+              "https://devrepo.kakao.com/nexus/content/groups/public/"
+            ]
+          }
+        }
+      ],
+      [
+        "@react-native-kakao/core",
+        {
+          "nativeAppKey": "0f078627f69312ad8b7b9d6af83398b7",
+          "android": {
+            "authCodeHandlerActivity": true
+          }
+        }
       ]
     ],
+
     "experiments": {
       "typedRoutes": true
     }
